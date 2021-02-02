@@ -8,6 +8,14 @@
               content="width=device-width, initial-scale=1">
 <title> LMS Homepage </title>
 <!-- Bootstrap CSS, custom CSS and favicon for site-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               rel="stylesheet"/>
 <link rel="stylesheet"
@@ -37,7 +45,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Course Dashboard
+                            Course List
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Course List</a>
@@ -116,7 +124,7 @@
                                                 <input type="tel"
                                                        class="form-control"
                                                        id="phone"
-                                                       placeholder="(123) 456-7890"/>
+                                                       value="(123) 456-7890"/>
                                             </div>
                                         </div>
 
@@ -129,7 +137,7 @@
                                                 <input type="email"
                                                        class="form-control"
                                                        title="Please enter a valid email"
-                                                       placeholder="aman@batra.me"
+                                                       value="aman@batra.me"
                                                        id="email"/>
                                             </div>
                                         </div>
@@ -140,9 +148,9 @@
                                                 Role
                                             </label>
                                             <div class="col-sm-10">
-                                                <select id="role" class="form-control">
-                                                    <option>Faculty</option>
+                                                <select id="role" class="form-control" disabled>
                                                     <option>Student</option>
+                                                    <option>Faulty</option>
                                                     <option>Staff</option>
                                                 </select>
                                             </div>
@@ -161,6 +169,7 @@
                                                        id="dob"
                                                        data-provide="datepicker"/>
                                             </div>
+                                            <!-- DATEPICKER will not work with safari, bootstrap compatibility issues-->
                                         </div>
 
                                         <div class="mb-3 row">
