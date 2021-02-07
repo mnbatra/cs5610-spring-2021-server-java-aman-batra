@@ -16,6 +16,7 @@
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
 
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
             integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
             crossorigin="anonymous"></script>
@@ -45,7 +46,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../index.html">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../index.template.client.html">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,7 +56,7 @@
                         <a class="dropdown-item" href="../dashboard/course-list.template.client.html">Course List</a>
                         <a class="dropdown-item" href="../dashboard/dashboard-grid.template.client.html">Dashboard Grid</a>
                         <a class="dropdown-item" href="../dashboard/dashboard-table.template.client.html">Dashboard Table</a>
-                       </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../profile/profile.template.client.html">Profile</a>
@@ -71,48 +72,53 @@
         </div>
     </nav>
 </header>
+<nav>
     <div class="navbar navbar-expand-sm wbdv-grey-bgk">
         <div class="d-inline-block">
-            <h2 class="text-light"> CS5610 - WebDev </h2>
+            <h2 class="text-light"> <a class="fa fa-times wbdv-close-btn mr-2" href="../dashboard/course-list.template.client.html"></a> CS5610 WebDev - Course Editor </h2>
         </div>
-        <div class="navbar-brand font-weight-bold ml-auto">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSecondary" aria-controls="navbarSecondary" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse font-weight-bold ml-auto" id="navbarSecondary">
             <ul class="navbar-nav justify-content-between">
                 <li class="nav-item">
-                    <a class="btn btn-warning nav-link px-4 ml-2 " href="#">
+                    <a class="btn btn-warning nav-link px-4 ml-2 mb-1" href="#">
                         Find Courses
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-warning nav-link px-4 ml-2 active" href="#">
+                    <a class="btn btn-warning nav-link px-4 ml-2 mb-1 active" href="#">
                         Register
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-warning nav-link px-4 ml-2" href="#">
+                    <a class="btn btn-warning nav-link px-4 ml-2 mb-1" href="#">
                         Drop a course
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-warning nav-link px-4 ml-2" href="#">
+                    <a class="btn btn-warning nav-link px-4 ml-2 mb-1" href="#">
                         Store
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-warning nav-link px-4 ml-2" href="#">
+                    <a class="btn btn-warning nav-link px-4 ml-2 mb-1" href="#">
                         Course Planner
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-warning nav-link px-4 ml-2" href="#">
+                    <a class="btn btn-warning nav-link px-4 ml-2 mb-1" href="#">
                         Calendar
                     </a>
                 </li>
             </ul>
- </div>
+        </div>
     </div>
+</nav>
 <div class="container-fluid mt-5 mb-5">
     <div class="row margin-add-10">
-        <div class="min-vh-100 col-3 wbdv-blue-bgk pt-5">
+        <div class="min-vh-100 col-xs col-3 wbdv-blue-bgk pt-5">
             <button class="btn rounded btn-block text-left btn-secondary text-light p-2 mb-2">
                 <span>Module 1 - jQuery</span>
                 <i class="fa fa-close pull-right align-bottom"></i>
@@ -148,8 +154,8 @@
                 </button>
             </div>
         </div>
-        <div class="col-9 pr-4">
-            <div class="mb-3 d-flex">
+        <div class="col-xs col-9 pr-4">
+            <div class="mb-3 d-flex flex-column d-sm-flex flex-sm-row">
                 <button class="font-weight-bold py-2 px-5 border-0 btn-secondary mr-2 text-light">
                     Render Props
                 </button>
@@ -167,7 +173,7 @@
                     Add a topic
                 </button>
             </div>
-            <div class="mb-3 d-flex align-items-baseline justify-content-end">
+            <div class="mb-3 d-flex flex-column d-sm-flex flex-sm-row align-items-baseline justify-content-end">
                 <button class="btn btn-success btn-sm">Save</button>
                 <label class="mx-2">Preview</label>
                 <i class="fa fa-2x fa-toggle-off align-self-center"></i>
@@ -175,7 +181,7 @@
             <div class="mb-3 ml-1 border rounded py-2 px-3">
                 <form class="mb-3">
                     <h4 class="pull-left">Heading widget</h4>
-                    <div class="d-flex justify-content-end align-items-center mb-3">
+                    <div class="d-flex flex-column d-sm-flex flex-sm-row justify-content-end align-items-center mb-3">
                         <button class="btn btn-warning m-1">
                             <i class="fa fa-arrow-down"></i>
                         </button>
@@ -208,7 +214,7 @@
                     <h1>Heading text</h1>
                 </div>
             </div>
-            <div>
+            <div class="col-md-2 col-sm-4 col-xs-12 text-center">
                 <button class="btn btn-success pull-right">
                     <i class="fa fa-plus-circle"></i>
                     Add a Widget
@@ -218,6 +224,7 @@
     </div>
 </div>
 <footer>
+    <!-- I HAVE NOT ENABLED THE FOOTER LINKS AS OF NOW, WILL ADD THEM IN UPCOMING ASSIGNMENTS -->
     <section id="footer">
         <div class="container flex-grow-1">
             <div class="row text-center text-xs-center text-sm-left text-md-left">
