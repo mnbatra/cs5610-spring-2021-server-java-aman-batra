@@ -43,14 +43,16 @@
 <header>
     <div id="wbdv_includedHeader"></div>
 </header>
-    <h1>User Admin</h1>
-<input id="usernameFld1">-->
-<button id = "createUser">Create User</button>
-<button id = "updateUser">Update User</button>
+<h1>&nbsp;&nbsp;User Admin</h1>
+<button id = "updateUser" class="float-right mr-2">Reset Form</button>
+<div class="container-flex">
+    <div class="row col col-sm">
+    </div>
+    <div class="row col col-sm ml-2">
 <ul id="userList">
 </ul>
     <table class="table table-striped table-bordered">
-        <thead>
+        <thead class="thead-dark">
         <tr>
             <th>Username</th>
             <th>Password</th>
@@ -91,15 +93,16 @@
             <td class="wbdv-role">FACULTY</td>
             <td class="wbdv-actions">
         <span class="float-right">
-          <button class="wbdv-remove"><i id="wbdv-remove" class="fa-2x fa fa-times wbdv-remove"></i></button>
+          <button class="wbdv-remove"><i id="wbdv-remove" class="fa-2x fa fa-trash wbdv-remove"></i></button>
             <button class="wbdv-edit"><i id="wbdv-edit" class=" fa-2x fa fa-edit wbdv-edit"></i></button>
         </span>
             </td>
         </tr>
         </tbody>
     </table>
-
-<footer class="mt-5"> <div id="wbdv_includedFooter"></div>
+    </div>
+<footer class="mt-2">
+    <div id="wbdv_includedFooter"></div>
 </footer>
 </body>
 </html>
