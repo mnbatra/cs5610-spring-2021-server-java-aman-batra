@@ -6,6 +6,7 @@ var $tbody
 var $roleFld
 var $createBtn
 var $updateBtn
+var $searchBtn
 var $userRow
 var UserService = new AdminUserServiceClient()
 
@@ -106,8 +107,23 @@ function deleteUser(event) {
         })
 }
 
+function searchUser() {
+    $tbody.empty()
+    var results = [];
+    var searchVal = $usernameFld.val();
+    console.log(searchVal);
+    for (var i=0 ; i < users.length ; i++)
+    { console.log(users[i].username)
+        if (users[i].username == searchVal || searchVal =="") {
+            results.push(users[i]);
+        }
+    }
+    renderUsers(results);
+}
+
 
 function main() {
+    $searchBtn = jQuery("#wbdv-searchBtn")
     $createBtn = jQuery("#wbdv-createBtn")
     $updateBtn = jQuery("#wbdv-updateBtn")
     $userRow = $(".wbdv-tbody")
@@ -119,7 +135,7 @@ function main() {
     $roleFld = $("#roleFld")
     $createBtn.click(createUser)
     $updateBtn.click(updateUser)
-
+    $searchBtn.click(searchUser)
     UserService.findAllUsers().then(function (actualUsers) {
         users = actualUsers
         console.log(users)
