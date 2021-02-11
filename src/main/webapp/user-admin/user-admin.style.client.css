@@ -3,3 +3,6 @@ h1 {
     color: white;
     margin-bottom: 50px;
 }
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #a2d5f1;
+}
