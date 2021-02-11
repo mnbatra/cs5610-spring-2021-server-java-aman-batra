@@ -1,26 +1,22 @@
 let users = [0];
-let $usernameFld;
-let $passwordFld;
-let $firstNameFld;
-let $lastNameFld;
+let $usernameFld, $passwordFld;
+let $firstNameFld, $lastNameFld;
 let $roleFld;
-let $searchBtn;
-let $createBtn;
-let $updateBtn;
+let $removeBtn, $editBtn, $resetBtn;
+let $createBtn, $updateBtn;
+let $tbody;
+let selectedUser = null;
 
 
 // starting the function
 // call to service client "user.service.client.js" to connect to db and initiate a new session
 
-let userService = new AdminUserServiceClient()
-
-let tableBody = jQuery("tbody")
-
+let UserService = new AdminUserServiceClient()
 function renderUsers(users) {
-    tableBody.empty()
+    $tbody.empty()
     for (let i = 0; i < users.length; i++) {
         let user = users[i]
-        tableBody.prepend(`
+        $tbody.prepend(`
             <td class="wbdv-username">${user.username}</td>
             <td class="wbdv-password">********</td>
             <td class="wbdv-first-name">${user.firstName}</td>
@@ -40,16 +36,15 @@ function renderUsers(users) {
         .click(selectUser)
 }
 
-async function createUser() {
-    var newUser = {
+function createUser() {
+    let newUser = {
         username: $usernameFld.val(),
         password: $passwordFld.val(),
         firstName: $firstNameFld.val(),
         lastName: $lastNameFld.val(),
         role: $roleFld.val()
     }
-
-    adminUserService.createUser(newUser)
+    UserService.createUser(newUser)
         .then(function (actualUser) {
             users.push(actualUser)
             renderUsers(users)
@@ -62,21 +57,70 @@ async function createUser() {
 }
 
 
-
-jQuery("wbdv-remove")
-    .click(function (event) {
-        let deleteBtn = jQuery(event.target())
-        let deleteId = deleteBtn.attr("id")
-        const delId = users[deleteId]._id;
-        users.splice(deleteId, 1)
+function updateUser() {
+    selectedUser.username = $usernameFld.val()
+    selectedUser.password = $passwordFld.val()
+    selectedUser.firstName = $firstNameFld.val()
+    selectedUser.lastName = $lastNameFld.val()
+    selectedUser.role = $roleFld.val()
+    UserService.updateUser(selectedUser._id, selectedUser).then(status => {
+        let index = users.findIndex(user => user._id === selectedUser._id)
+        users[index] = selectedUser
         renderUsers(users)
-
     })
+    $usernameFld.val("")
+    $passwordFld.val("")
+    $firstNameFld.val("")
+    $lastNameFld.val("")
+    $roleFld.val("")
+}
+
+function deleteUser(event) {
+    let button = $(event.target)
+    let index = button.attr("id")
+    let id = users[index]._id
+    UserService.deleteUser(id)
+        .then(function (status) {
+            users.splice(index, 1)
+            renderUsers(users)
+        })
+}
+
+function selectUser(event) {
+    let id = $(event.target).attr("id")
+    console.log(id)
+    selectedUser = users.find(user => user._id === id)
+    $usernameFld.val(selectedUser.username)
+    $passwordFld.val(selectedUser.password)
+    $firstNameFld.val(selectedUser.firstName)
+    $lastNameFld.val(selectedUser.lastName)
+    $roleFld.val(selectedUser.role)
+}
 
 
-    let $webDevForm = jQuery("wbdv_form")
+let $webDevForm = jQuery("wbdv_form")
     function emptyInputForm() {
-        $webDevForm.empty()
+    $webDevForm.empty()
     }
 
+function main() {
 
+    $usernameFld = jQuery("#usernameFld");
+    $passwordFld = jQuery("#passwordFld");
+    $firstNameFld = jQuery("#firstNameFld");
+    $lastNameFld = jQuery("#lastNameFld");
+    $roleFld = jQuery("#roleFld");
+    $createBtn = jQuery(".wbdv-create");
+    $removeBtn = jQuery(".wbdv-remove")
+    $editBtn = jQuery(".wbdv-edit");
+    $tbody = jQuery(".wbdv-tbody");
+    $updateBtn = jQuery(".wbdv-update")
+
+
+
+    $createBtn.click(createUser())
+    $updateBtn.click(updateUser())
+    $removeBtn.click(deleteUser())
+    $resetBtn.click(emptyInputForm())
+}
+jQuery(main);
