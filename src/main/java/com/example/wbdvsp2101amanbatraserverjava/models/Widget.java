@@ -142,7 +142,7 @@ public class Widget {
     public void setValue(String value) {
         this.value = value;
     }
-    
+
     public String getStyle() {
         return style;
     }
