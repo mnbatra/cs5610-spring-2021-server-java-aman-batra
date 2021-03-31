@@ -1,6 +1,13 @@
 package com.example.wbdvsp2101amanbatraserverjava.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "widgets")
+
 public class Widget {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String topicId;
@@ -42,6 +49,27 @@ public class Widget {
         this.style = style;
         this.value = value;
     }
+
+//create table widgets (
+//    id bigint not null auto_increment,
+//    css_class varchar(255),
+//    height integer,
+//    name varchar(255),
+//    size integer,
+//    src varchar(255),
+//    style varchar(255),
+//    text varchar(255),
+//    topic_id varchar(255),
+//    type varchar(255),
+//    value varchar(255),
+//    widget_order integer,
+//    width integer,
+//    primary key (id)
+//    ) engine=InnoDB
+
+
+
+
 
     public Widget() {
     }

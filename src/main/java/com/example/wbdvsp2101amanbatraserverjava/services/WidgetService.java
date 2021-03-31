@@ -1,5 +1,7 @@
 package com.example.wbdvsp2101amanbatraserverjava.services;
 import com.example.wbdvsp2101amanbatraserverjava.models.Widget;
+import com.example.wbdvsp2101amanbatraserverjava.repositories.WidgetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,6 +11,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class WidgetService {
+
+    @Autowired
+    WidgetRepository repository;
     private final List<Widget> widgets = new ArrayList<>();{
 //        Widget w1 = new Widget(123l, "ABC123", "HEADING", 1, "Welcome to Widgets");
 //        Widget w2 = new Widget(234l, "ABC234", "PARAGRAPH", 1, "This is a paragraph");
@@ -28,16 +33,19 @@ public class WidgetService {
     }
 
     public List<Widget> findAllWidgets() {
-        return widgets;
+        return repository.findAllWidgets();
+        //return widgets;
     }
 
     public Widget findWidgetById(Long id) {
-        for(Widget w: widgets) {
-            if(w.getId().equals(id)) {
-                return w;
-            }
-        }
-        return null;
+        return repository.findWidgetById(id);
+//        return repository.findById(id).get();
+//        for(Widget w: widgets) {
+//            if(w.getId().equals(id)) {
+//                return w;
+//            }
+//        }
+//        return null;
     }
 
     public List<Widget> findWidgetsForTopic(String tid) {
